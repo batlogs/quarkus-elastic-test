@@ -20,15 +20,13 @@ import java.util.stream.Collectors;
 
 public abstract class AbstractElasticsearchService {
     private static final Logger log = LoggerFactory.getLogger(AbstractElasticsearchService.class);
-    @ConfigProperty(
-            name = "service.elastic-search.hosts"
-    )
+
+    @ConfigProperty(name = "service.elastic-search.hosts", defaultValue = "0.0.0.0:9200")
     String[] hosts;
-    @ConfigProperty(
-            name = "service.elastic-search.num-threads",
-            defaultValue = "10"
-    )
+
+    @ConfigProperty(name = "service.elastic-search.num-threads", defaultValue = "10")
     Optional<Integer> numThreads;
+
     private RestHighLevelClient restClient;
     private Sniffer sniffer;
 
