@@ -5,6 +5,7 @@ import io.quarkus.runtime.StartupEvent;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.otaibe.commons.quarkus.elasticsearch.client.service.AbstractElasticsearchService;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;

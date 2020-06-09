@@ -6,8 +6,9 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.acme.domain.Document;
 import org.acme.service.ElasticService;
-import org.acme.utils.JsonUtils;
 import org.elasticsearch.client.indices.CreateIndexRequest;
+import org.otaibe.commons.quarkus.core.utils.JsonUtils;
+import org.otaibe.commons.quarkus.elasticsearch.client.dao.AbstractElasticsearchReactiveDaoImplementation;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -21,7 +22,7 @@ import java.util.Map;
 @Slf4j
 @Setter
 @Getter
-public class DocumentDaoImpl extends AbstractElasticsearchReactiveDaoImplementation<Document>{
+public class DocumentDaoImpl extends AbstractElasticsearchReactiveDaoImplementation<Document> {
     public static final String TABLE_NAME_PREFFIX = "document";
     public static final String ENGLISH = "english";
 
@@ -84,7 +85,7 @@ public class DocumentDaoImpl extends AbstractElasticsearchReactiveDaoImplementat
     }
 
     @Override
-    protected Mono<Object> createIndex() {
+    protected Mono<Boolean> createIndex() {
         CreateIndexRequest request = new CreateIndexRequest(getTableName());
         Map<String, Object> mapping = new HashMap();
         Map<String, Object> propsMapping = new HashMap<>();

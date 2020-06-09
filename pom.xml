@@ -17,7 +17,7 @@
     <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
     <quarkus.platform.version>1.4.2.Final</quarkus.platform.version>
     <surefire-plugin.version>2.22.1</surefire-plugin.version>
-    <mutiny-vertx.version></mutiny-vertx.version>
+    <otaibe-commons-quarkus.version>elasticsearch-example.02</otaibe-commons-quarkus.version>
 
   </properties>
   <dependencyManagement>
@@ -33,6 +33,21 @@
   </dependencyManagement>
 
   <dependencies>
+    <dependency>
+      <groupId>com.github.tpenakov.otaibe-commons-quarkus</groupId>
+      <artifactId>otaibe-commons-quarkus-core</artifactId>
+      <version>${otaibe-commons-quarkus.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.github.tpenakov.otaibe-commons-quarkus</groupId>
+      <artifactId>otaibe-commons-quarkus-elasticsearch</artifactId>
+      <version>${otaibe-commons-quarkus.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.github.tpenakov.otaibe-commons-quarkus</groupId>
+      <artifactId>otaibe-commons-quarkus-rest</artifactId>
+      <version>${otaibe-commons-quarkus.version}</version>
+    </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-mutiny</artifactId>
@@ -199,4 +214,10 @@
       </properties>
     </profile>
   </profiles>
+  <repositories>
+    <repository>
+      <id>jitpack.io</id>
+      <url>https://jitpack.io</url>
+    </repository>
+  </repositories>
 </project>

@@ -53,7 +53,7 @@ public class ExampleService {
         return getDao().findByNameOrDescription(value);
     }
 
-    public Mono<Object> delete(Document entity) {
+    public Mono<Boolean> delete(Document entity) {
         return Mono.just(entity.getId())
                 .filter(s -> StringUtils.isNotBlank(s))
                 .flatMap(s -> getDao().deleteById(entity))
